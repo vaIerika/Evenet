@@ -32,13 +32,11 @@
 *Screen for Contacted Participants*
 
 ![Sorting a List](Screenshots/contactedSorting.png)
-
 <br/>
 
 *User's profile with individual QR code*
 
 ![User's profile](Screenshots/profile.png) 
-
 <br/>
 
 ### Nice Features 

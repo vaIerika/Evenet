@@ -58,10 +58,10 @@ struct ProfileTextField: View {
 
 struct ProfileView: View {
     @ObservedObject private var keyboard = KeyboardResponder()
-    @State private var name = "Valerie Abelovska"
-    @State private var phoneNumber = "+421 910 132 126‬"
-    @State private var emailAddress = "valerie.abelovska@gmail.com"
-    @State private var workplace = "iOS Development Department"
+    @State private var name = "Valerie A."
+    @State private var phoneNumber = ""
+    @State private var emailAddress = "valerika.hello@gmail.com"
+    @State private var workplace = "🍏 Inc."
     @State private var disableEditing = true
     let context = CIContext()
     let filer = CIFilter.qrCodeGenerator()
