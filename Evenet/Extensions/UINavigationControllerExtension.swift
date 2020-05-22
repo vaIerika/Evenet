@@ -13,13 +13,13 @@ extension UINavigationController {
         super.viewDidLoad()
       
         let standardAppearance = UINavigationBarAppearance()
-        standardAppearance.backgroundColor = .whiteBG
+        standardAppearance.backgroundColor = .pearl
         
         let compactAppearance = UINavigationBarAppearance()
-        compactAppearance.backgroundColor = .whiteBG
+        compactAppearance.backgroundColor = .pearl
         
         let scrollEdgeAppearance = UINavigationBarAppearance()
-        scrollEdgeAppearance.backgroundColor = .whiteBG
+        scrollEdgeAppearance.backgroundColor = .pearl
         
         navigationBar.standardAppearance = standardAppearance
         navigationBar.compactAppearance = compactAppearance

@@ -87,7 +87,7 @@ struct ContactsView: View {
                                 
                             Text(contact.name)
                                 .font(.custom("Helvetica-bold", size: 15))
-                                .foregroundColor(.primaryDark)
+                                .foregroundColor(.charcoal)
                             
                             VStack(alignment: .leading, spacing: 3) {
                                 HStack(spacing: 15) {
@@ -97,7 +97,7 @@ struct ContactsView: View {
                                 }
                             }
                             .font(.custom("Helvetica", size: 13))
-                            .foregroundColor(.primaryDark)
+                            .foregroundColor(.charcoal)
                             .padding(.top, 10)
                         }
                         .padding(.top, 8)
@@ -106,7 +106,7 @@ struct ContactsView: View {
                         
                     .padding([.top, .bottom], 10)
                     .padding(.leading, 25)
-                    .background(Color.customWhite)
+                    .background(Color.pearl)
                     .shadow(color: Color.gray.opacity(0.1), radius: 5, x: 5, y: 5)
                     .shadow(color: Color.white.opacity(0.7), radius: 5, x: -2.5, y: -2.5)
                         
@@ -121,10 +121,10 @@ struct ContactsView: View {
                         }
                     }
                 }
-                .listRowBackground(Color.customWhite).edgesIgnoringSafeArea(.all)
+                .listRowBackground(Color.pearl).edgesIgnoringSafeArea(.all)
             }
             .padding(.top, 10)
-            .background(Color.customWhite)
+            .background(Color.pearl)
             .navigationBarTitle(title)
             .navigationBarItems(leading: Button(action: {
                 self.showingSortOptions = true

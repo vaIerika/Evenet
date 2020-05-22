@@ -1,58 +1,53 @@
-# Evenet
+# Evenet   <img src="Screenshots/appLogo.png" width="50px" />
 > For fast networking on the event.
 >
 > App collects contacts of event's participants by scanning QR code, allows to pick uncontacted people out and create notifications.
 >
-> Written in SwiftUI.
+> Written in SwiftUI. Tested with iPhone 11.
 
 <br/>
 
 ### Fuctionality of the App
-1. Generates an individual QR code with personal data 
+1. Generate an individual QR code with personal data 
 *(name, phone number, email, workplace)*
-2. Scans QR codes of other users and saves their data in DocumentsDirectory of the user 
-3. Illustrates saved data in the list
-4. Allows user to separate contacted people from those who weren't contacted
-5. Creates notifications by user's request 
+2. Scan QR codes of other users and save their data in DocumentsDirectory of the user 
+3. Illustrate saved data in the list
+4. Allow user to separate contacted people from those who weren't contacted
+5. Create notifications by user's request 
 
 <br/>
 
 ### Screenshots
 
-*Launch Screen*
+*List of contacts*
 
-![Launch Screen](Screenshots/launchScreen.png)
+![List of contacts](Screenshots/listChangings.gif)
+
 <br/>
 
-*Main Screen*
+*Sort contacts*
 
-![Main Screen](Screenshots/mainScreen.png) 
+![Sorting](Screenshots/sorting.gif) 
+
 <br/>
 
-*Screen for Contacted Participants*
+*Profile*
 
-![Sorting a List](Screenshots/contactedSorting.png)
-<br/>
+![Profile](Screenshots/editProfile.gif)
 
-*User's profile with individual QR code*
-
-![User's profile](Screenshots/profile.png) 
 <br/>
 
 ### Nice Features 
 - Neumorphism in design 🕹
 - Sorting by name or date ✌️
-- Launch screen 🚀  
+- Scaning QR code with camera to add contacts 🚀  
 - Animated lifting a view with the keyboard 🏗
 
 <br/>
 ---
 
 ### The Author 
-I'm UI/UX designer with master degree in Marketing who believes that to code is thrilling. 
-Right now I am trying to balance between my design ideas that will make users happy and ability to code them. Sometimes this balance seems more like struggle. But you know, keep moving forward! 
-
-Feel free to [reach out](mailto:Valerika.Hello@gmail.com)  😊
+If you found a bug or want to discuss a new feature, feel free to [reach out](mailto:Valerika.Hello@gmail.com)  😊
 
 <br/>
 

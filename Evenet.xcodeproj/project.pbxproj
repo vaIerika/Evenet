@@ -92,8 +92,8 @@
 				AFCA9B40243A2E0A008CF5DA /* AppDelegate.swift */,
 				AFCA9B42243A2E0A008CF5DA /* SceneDelegate.swift */,
 				AFA5EAE2243B7EA100CA0535 /* Extensions */,
-				AFCA9B54243A2EC1008CF5DA /* Model */,
 				AFCA9B55243A2EEC008CF5DA /* View */,
+				AFCA9B54243A2EC1008CF5DA /* Model */,
 				AFCA9B4B243A2E0C008CF5DA /* LaunchScreen.storyboard */,
 				AFCA9B46243A2E0C008CF5DA /* Assets.xcassets */,
 				AFCA9B4E243A2E0C008CF5DA /* Info.plist */,
@@ -367,7 +367,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = app.Evenet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -387,7 +387,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = app.Evenet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

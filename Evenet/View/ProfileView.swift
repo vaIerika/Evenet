@@ -17,10 +17,10 @@ struct ProfileLargeTextField: View {
         VStack(alignment: .leading) {
             Text(description)
                 .font(.custom("Helvetica-light", size: 14))
-                .foregroundColor(.primaryDark)
+                .foregroundColor(.charcoal)
             TextField(description, text: $text)
                 .font(.custom("Helvetica-bold", size: 20))
-                .foregroundColor(.primaryDark)
+                .foregroundColor(.charcoal)
         }
         .padding(.top, 15)
     }
@@ -35,10 +35,10 @@ struct ProfileMediumTextField: View {
         VStack(alignment: .leading) {
             Text(description)
                 .font(.custom("Helvetica-light", size: 14))
-                .foregroundColor(.primaryDark)
+                .foregroundColor(.charcoal)
             TextField(description, text: $text)
                 .font(.custom("Helvetica-bold", size: 14))
-                .foregroundColor(.primaryDark)
+                .foregroundColor(.charcoal)
         }
         .padding(.top, 15)
     }
@@ -52,7 +52,7 @@ struct ProfileTextField: View {
     var body: some View {
         TextField(description, text: $text)
             .font(.custom("Helvetica-light", size: 14))
-            .foregroundColor(.primaryDark)
+            .foregroundColor(.charcoal)
     }
 }
 
@@ -127,7 +127,7 @@ struct ProfileView: View {
             .animation(.easeOut(duration: 0.16))
                 
             .padding(.horizontal, 20)
-            .background(Color.customWhite)
+            .background(Color.pearl)
                 
             .navigationBarTitle("My QR code")
         }

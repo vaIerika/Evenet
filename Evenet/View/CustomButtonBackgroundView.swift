@@ -15,7 +15,7 @@ struct CustomButtonBackground<S: Shape>: View {
         ZStack {
             if isHightlighted {
                 shape
-                    .fill(Color.customWhite)
+                    .fill(Color.pearl)
                     .overlay(
                         shape
                             .stroke(Color.gray, lineWidth: 4)
@@ -38,10 +38,16 @@ struct CustomButtonBackground<S: Shape>: View {
                     )
             } else {
                 shape
-                    .fill(Color.customWhite)
+                    .fill(Color.pearl)
                     .shadow(color: Color.gray.opacity(0.6), radius: 8, x: 8, y: 8)
                     .shadow(color: Color.white.opacity(0.7), radius: 10, x: -5, y: -5)
             }
         }
+    }
+}
+
+struct CustomButtonBackgroundView_Previews: PreviewProvider {
+    static var previews: some View {
+        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
     }
 }

@@ -14,7 +14,7 @@ enum SelectedTabView {
 struct ContentView: View {
     init() {
         // To add background color for the Nav.Bar
-        UITableView.appearance().backgroundColor = .whiteBG
+        UITableView.appearance().backgroundColor = .pearl
         
         // To remove only extra separators below the list
         UITableView.appearance().tableFooterView = UIView()
@@ -64,7 +64,7 @@ struct ContentView: View {
                 )
                 .padding(.top, geometry.safeAreaInsets.bottom / 2)
                 .padding(.bottom, geometry.safeAreaInsets.bottom / 2)
-                .background(Color.customWhite)
+                .background(Color.pearl)
             }
             .edgesIgnoringSafeArea(.bottom)
         }

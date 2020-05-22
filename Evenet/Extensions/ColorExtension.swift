@@ -8,25 +8,33 @@
 import SwiftUI
 
 extension UIColor {
-    public class var whiteBG: UIColor {
+    public class var pearl: UIColor {
         UIColor(red: 239/255, green: 245/255, blue: 255/255, alpha: 1)
     }
 }
 
 extension Color {
-    static let customWhite = Color(red: 239/255, green: 245/255, blue: 255/255)
-    
-    static let darkStart = Color(red: 50/255, green: 60/255, blue: 65/255)
-    static let darkEnd = Color(red: 25/255, green: 25/255, blue: 30/255)
-    
-    static let lightStart = Color(red: 60/255, green: 160/255, blue: 240/255)
-    static let lightEnd = Color(red: 30/255, green: 80/255, blue: 120/255)
-    
-    static let primaryDark = Color(red: 57/255, green: 62/255, blue: 70/255)
+    static let pearl = Color(red: 239/255, green: 245/255, blue: 255/255)
+    static let charcoal = Color(red: 57/255, green: 62/255, blue: 70/255)
 }
 
 extension LinearGradient {
     init(_ colors: Color...) {
         self.init(gradient: Gradient(colors: colors), startPoint: .topLeading, endPoint: .bottomTrailing)
+    }
+}
+
+
+struct ColorExtension_Previews: PreviewProvider {
+    static var previews: some View {
+        HStack {
+            Circle()
+                .foregroundColor(.pearl)
+            Circle()
+                .foregroundColor(.charcoal)
+        }
+        .frame(height: 50)
+        .padding(40)
+        .previewLayout(.fixed(width: 230, height: 120))
     }
 }
