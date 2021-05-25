@@ -26,12 +26,10 @@ struct ActionSheetConfigurator: UIViewControllerRepresentable {
 }
 
 struct ActionSheetCustom: ViewModifier {
-
     func body(content: Content) -> some View {
         content
             .background(ActionSheetConfigurator { action in
-                // change the text color of Action Sheet text 
-                action.view.tintColor = UIColor.systemPink
+                action.view.tintColor = UIColor.systemPink /// change the text color of Action Sheet text
             })
     }
 }

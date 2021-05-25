@@ -1,0 +1,47 @@
+[
+	{
+        "id": "A7616803-F4F2-4CFC-A611-3E2DE4FCD340",
+		"name": "Vanessa Wood",
+		"phoneNumber": "+421 427 001 862",
+        "emailAddress": "vanesood@gmail.com",
+        "workplace": "Harris, Baker and Harrison",
+        "isContacted": false,
+        "date": 577814769.81546402
+	},
+    {
+        "id": "B7616803-F4F2-4CFC-A611-3E2DE4FCD329",
+		"name": "Kimberly James",
+		"phoneNumber": "+421 656 923 217",
+        "emailAddress": "kimbemes@gmail.com",
+        "workplace": "Matthews and Sons",
+        "isContacted": true,
+        "date": 577614769.81546402
+	},
+    {
+        "id": "C7616803-F4F2-4CFC-A611-3E2DE4FCD350",
+		"name": "Leah Martin",
+		"phoneNumber": "+421 045 837 608",
+        "emailAddress": "leahmartin@gmail.com",
+        "workplace": "Davies-Cox",
+        "isContacted": true,
+        "date": 577814769.81546401
+	},
+     {
+        "id": "D7616803-F4F2-4CFC-A611-3E2DE4FCD340",
+		"name": "Michael Hall",
+		"phoneNumber": "+421 040 036 303",
+        "emailAddress": "michaell@gmail.com",
+        "workplace": "Matthews PLC",
+        "isContacted": false,
+         "date": 577814769.81544010
+	}, 
+    {
+        "id": "E8616803-F4F2-4CFC-A611-3E2DE4FCD340",
+		"name": "Summer Jackson",
+		"phoneNumber": "+421 014 090 074",
+        "emailAddress": "summeson@gmail.com",
+        "workplace": "Wilkinson LLC",
+        "isContacted": true,
+        "date": 577814769.81546402
+	}
+]

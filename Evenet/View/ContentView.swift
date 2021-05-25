@@ -24,7 +24,7 @@ struct ContentView: View {
     }
     
     @State var selectedTabView = SelectedTabView.contacts
-    var contacts = Contacts()
+    var contacts = MyContacts()
     
     var body: some View {
         

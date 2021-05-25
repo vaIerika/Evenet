@@ -1,4 +1,4 @@
-# Evenet   <img src="Screenshots/appLogo.png" width="50px" />
+# Evenet   <img src="Screenshots/appLogo.png" width="40px" />
 > For fast networking on the event.
 >
 > App collects contacts of event's participants by scanning QR code, allows to pick uncontacted people out and create notifications.

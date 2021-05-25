@@ -19,7 +19,7 @@ enum SortType {
 
 struct ContactsView: View {
     
-    @EnvironmentObject var contacts: Contacts
+    @EnvironmentObject var contacts: MyContacts
     @State private var showingScanner = false
     @State private var showingSortOptions = false
     @State var sort: SortType = .name
@@ -50,7 +50,8 @@ struct ContactsView: View {
         case .name:
             return filteredContacts.sorted { $0.name < $1.name }
         case .recent:
-            return filteredContacts.sorted { $0.date > $1.date }
+            return filteredContacts.sorted { $0.name < $1.name }
+            //return filteredContacts.sorted { $0.date > $1.date }
         }
     }
     
@@ -167,7 +168,7 @@ struct ContactsView: View {
             let details = code.components(separatedBy: "\n")
             guard details.count == 4 else { return }
             
-            let person = Contact()
+            var person = Contact()
             person.name = details[0]
             person.phoneNumber = details[1]
             person.emailAddress = details[2]
