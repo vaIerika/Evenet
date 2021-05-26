@@ -1,5 +1,5 @@
 //
-//  CustomButtonStyle.swift
+//  NeumorphismButtonBackground.swift
 //  Evenet
 //
 //  Created by Valerie 👩🏼‍💻 on 06/04/2020.
@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct CustomButtonBackground<S: Shape>: View {
-    var isHightlighted: Bool
+struct NeumorphismButtonBackground<S: Shape>: View {
     var shape: S
+    var isHightlighted: Bool
     
     var body: some View {
         ZStack {
@@ -46,8 +46,15 @@ struct CustomButtonBackground<S: Shape>: View {
     }
 }
 
-struct CustomButtonBackgroundView_Previews: PreviewProvider {
+struct NeumorphismButtonBackground_Previews: PreviewProvider {
     static var previews: some View {
-        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
+        HStack(spacing: 30) {
+            Image(systemName: "person")
+                .padding(10)
+                .background(NeumorphismButtonBackground(shape: Circle(), isHightlighted: true))
+            Image(systemName: "person")
+                .padding(10)
+                .background(NeumorphismButtonBackground(shape: Circle(), isHightlighted: false))
+        }
     }
 }

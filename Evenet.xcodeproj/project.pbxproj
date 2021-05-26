@@ -11,7 +11,7 @@
 		AF00003E243E2CA00003C920 /* KeyboardResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF00003D243E2CA00003C920 /* KeyboardResponder.swift */; };
 		AFA5EAE1243B7CD800CA0535 /* TabBarItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA5EAE0243B7CD800CA0535 /* TabBarItemView.swift */; };
 		AFA5EAE4243B7EFD00CA0535 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA5EAE3243B7EFD00CA0535 /* ColorExtension.swift */; };
-		AFA5EAE8243B811100CA0535 /* CustomButtonBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA5EAE7243B811100CA0535 /* CustomButtonBackgroundView.swift */; };
+		AFA5EAE8243B811100CA0535 /* Neumorphism ButtonBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA5EAE7243B811100CA0535 /* Neumorphism ButtonBackgroundView.swift */; };
 		AFA5EAEA243B8A8700CA0535 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA5EAE9243B8A8700CA0535 /* TabBarView.swift */; };
 		AFA5EAEC243B9C7800CA0535 /* UINavigationControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA5EAEB243B9C7800CA0535 /* UINavigationControllerExtension.swift */; };
 		AFCA9B41243A2E0A008CF5DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCA9B40243A2E0A008CF5DA /* AppDelegate.swift */; };
@@ -34,7 +34,7 @@
 		AF00003D243E2CA00003C920 /* KeyboardResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardResponder.swift; sourceTree = "<group>"; };
 		AFA5EAE0243B7CD800CA0535 /* TabBarItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItemView.swift; sourceTree = "<group>"; };
 		AFA5EAE3243B7EFD00CA0535 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
-		AFA5EAE7243B811100CA0535 /* CustomButtonBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonBackgroundView.swift; sourceTree = "<group>"; };
+		AFA5EAE7243B811100CA0535 /* Neumorphism ButtonBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Neumorphism ButtonBackgroundView.swift"; sourceTree = "<group>"; };
 		AFA5EAE9243B8A8700CA0535 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		AFA5EAEB243B9C7800CA0535 /* UINavigationControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtension.swift; sourceTree = "<group>"; };
 		AFCA9B3D243A2E0A008CF5DA /* Evenet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Evenet.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,6 +101,7 @@
 				B872C3BE265D615700702872 /* ViewModel */,
 				AFCA9B54243A2EC1008CF5DA /* Model */,
 				AFCA9B55243A2EEC008CF5DA /* View */,
+				B8CFD675265E534500D43963 /* Components */,
 				AFA5EAE2243B7EA100CA0535 /* Extensions */,
 				AFCA9B4B243A2E0C008CF5DA /* LaunchScreen.storyboard */,
 				AFCA9B46243A2E0C008CF5DA /* Assets.xcassets */,
@@ -131,9 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				AFCA9B44243A2E0A008CF5DA /* ContentView.swift */,
-				AFA5EAE9243B8A8700CA0535 /* TabBarView.swift */,
-				AFA5EAE0243B7CD800CA0535 /* TabBarItemView.swift */,
-				AFA5EAE7243B811100CA0535 /* CustomButtonBackgroundView.swift */,
+				B8CFD676265E54CE00D43963 /* Tab View */,
 				AFCA9B58243A31BA008CF5DA /* ContactsView.swift */,
 				AFCA9B56243A3160008CF5DA /* ProfileView.swift */,
 			);
@@ -146,6 +145,23 @@
 				B872C3BF265D616000702872 /* MyContacts.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B8CFD675265E534500D43963 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				AFA5EAE7243B811100CA0535 /* Neumorphism ButtonBackgroundView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		B8CFD676265E54CE00D43963 /* Tab View */ = {
+			isa = PBXGroup;
+			children = (
+				AFA5EAE9243B8A8700CA0535 /* TabBarView.swift */,
+				AFA5EAE0243B7CD800CA0535 /* TabBarItemView.swift */,
+			);
+			path = "Tab View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,7 +194,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1140;
-				LastUpgradeCheck = 1140;
+				LastUpgradeCheck = 1250;
 				TargetAttributes = {
 					AFCA9B3C243A2E0A008CF5DA = {
 						CreatedOnToolsVersion = 11.4;
@@ -227,7 +243,7 @@
 			files = (
 				B872C3C0265D616000702872 /* MyContacts.swift in Sources */,
 				B872C3C4265D637400702872 /* Bundle+Decodable.swift in Sources */,
-				AFA5EAE8243B811100CA0535 /* CustomButtonBackgroundView.swift in Sources */,
+				AFA5EAE8243B811100CA0535 /* Neumorphism ButtonBackgroundView.swift in Sources */,
 				AFCA9B59243A31BA008CF5DA /* ContactsView.swift in Sources */,
 				AFA5EAE1243B7CD800CA0535 /* TabBarItemView.swift in Sources */,
 				AFCA9B5B243A31D4008CF5DA /* Contact.swift in Sources */,
@@ -283,6 +299,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -307,7 +324,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -343,6 +360,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -361,7 +379,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
