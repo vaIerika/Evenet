@@ -12,7 +12,7 @@ class MyContacts: ObservableObject {
     static let saveKey = "ContactsEvenet"
     
     init() {
-        /// example data for preview
+        /// sample data for preview
         people = Bundle.main.decode("defaultContacts.json")
 
         if let data = loadFile() {

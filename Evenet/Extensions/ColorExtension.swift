@@ -24,7 +24,6 @@ extension LinearGradient {
     }
 }
 
-
 struct ColorExtension_Previews: PreviewProvider {
     static var previews: some View {
         HStack {

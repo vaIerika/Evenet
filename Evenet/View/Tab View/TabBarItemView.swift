@@ -42,7 +42,6 @@ struct TabBarItemView: View {
                 .background(
                     NeumorphismButtonBackground(shape: Circle(), isHightlighted: isSelected)
                 )
-                .padding()
         }
     }
 }

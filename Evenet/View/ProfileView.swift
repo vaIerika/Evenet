@@ -5,56 +5,8 @@
 //  Created by Valerie 👩🏼‍💻 on 05/04/2020.
 //
 
-import CoreImage.CIFilterBuiltins
 import SwiftUI
-
-struct ProfileLargeTextField: View {
-    var description: String
-    var contentType:  UITextContentType?
-    @Binding var text: String
-    
-    var body: some View {
-        VStack(alignment: .leading) {
-            Text(description)
-                .font(.custom("Helvetica-light", size: 14))
-                .foregroundColor(.charcoal)
-            TextField(description, text: $text)
-                .font(.custom("Helvetica-bold", size: 20))
-                .foregroundColor(.charcoal)
-        }
-        .padding(.top, 15)
-    }
-}
-
-struct ProfileMediumTextField: View {
-    var description: String
-    var contentType:  UITextContentType?
-    @Binding var text: String
-    
-    var body: some View {
-        VStack(alignment: .leading) {
-            Text(description)
-                .font(.custom("Helvetica-light", size: 14))
-                .foregroundColor(.charcoal)
-            TextField(description, text: $text)
-                .font(.custom("Helvetica-bold", size: 14))
-                .foregroundColor(.charcoal)
-        }
-        .padding(.top, 15)
-    }
-}
-
-struct ProfileTextField: View {
-    var description: String
-    var contentType:  UITextContentType?
-    @Binding var text: String
-    
-    var body: some View {
-        TextField(description, text: $text)
-            .font(.custom("Helvetica-light", size: 14))
-            .foregroundColor(.charcoal)
-    }
-}
+import CoreImage.CIFilterBuiltins
 
 struct ProfileView: View {
     @ObservedObject private var keyboard = KeyboardResponder()
@@ -63,8 +15,8 @@ struct ProfileView: View {
     @State private var emailAddress = "valerika.hello@gmail.com"
     @State private var workplace = "🍏 Inc."
     @State private var disableEditing = true
-    let context = CIContext()
-    let filer = CIFilter.qrCodeGenerator()
+    private let context = CIContext()
+    private let filer = CIFilter.qrCodeGenerator()
     
     var body: some View {
         NavigationView {
@@ -92,7 +44,9 @@ struct ProfileView: View {
                 HStack {
                     Spacer()
                     Button(action: {
-                        self.disableEditing.toggle()
+                        withAnimation {
+                            disableEditing.toggle()
+                        }
                     }) {
                         if disableEditing {
                             HStack {
@@ -124,7 +78,7 @@ struct ProfileView: View {
             }
             .padding(.bottom, keyboard.currentHeight)
             .edgesIgnoringSafeArea(.bottom)
-            .animation(.easeOut(duration: 0.16))
+            //.animation(.easeOut(duration: 0.16))
                 
             .padding(.horizontal, 20)
             .background(Color.pearl)
@@ -133,7 +87,7 @@ struct ProfileView: View {
         }
     }
     
-    func generateQRCode(from string: String) -> UIImage {
+    private func generateQRCode(from string: String) -> UIImage {
         let data = Data(string.utf8)
         filer.setValue(data, forKey: "inputMessage")
         

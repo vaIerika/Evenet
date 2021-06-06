@@ -24,6 +24,10 @@
 		AFCA9B59243A31BA008CF5DA /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCA9B58243A31BA008CF5DA /* ContactsView.swift */; };
 		AFCA9B5B243A31D4008CF5DA /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCA9B5A243A31D4008CF5DA /* Contact.swift */; };
 		AFCA9B5E243A332F008CF5DA /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = AFCA9B5D243A332F008CF5DA /* CodeScanner */; };
+		B85BB83B266D22BF0078EB7F /* View+hidden.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85BB83A266D22BF0078EB7F /* View+hidden.swift */; };
+		B85BB83D266D23F60078EB7F /* ContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85BB83C266D23F60078EB7F /* ContactView.swift */; };
+		B85BB83F266D28480078EB7F /* BarButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85BB83E266D28480078EB7F /* BarButtonView.swift */; };
+		B85BB843266D329C0078EB7F /* ProfileTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85BB842266D329C0078EB7F /* ProfileTextField.swift */; };
 		B872C3C0265D616000702872 /* MyContacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B872C3BF265D616000702872 /* MyContacts.swift */; };
 		B872C3C4265D637400702872 /* Bundle+Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B872C3C3265D637400702872 /* Bundle+Decodable.swift */; };
 		B872C3CA265D720F00702872 /* defaultContacts.json in Resources */ = {isa = PBXBuildFile; fileRef = B872C3C9265D720F00702872 /* defaultContacts.json */; };
@@ -48,6 +52,10 @@
 		AFCA9B56243A3160008CF5DA /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		AFCA9B58243A31BA008CF5DA /* ContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
 		AFCA9B5A243A31D4008CF5DA /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		B85BB83A266D22BF0078EB7F /* View+hidden.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+hidden.swift"; sourceTree = "<group>"; };
+		B85BB83C266D23F60078EB7F /* ContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactView.swift; sourceTree = "<group>"; };
+		B85BB83E266D28480078EB7F /* BarButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarButtonView.swift; sourceTree = "<group>"; };
+		B85BB842266D329C0078EB7F /* ProfileTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTextField.swift; sourceTree = "<group>"; };
 		B872C3BF265D616000702872 /* MyContacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyContacts.swift; sourceTree = "<group>"; };
 		B872C3C3265D637400702872 /* Bundle+Decodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Decodable.swift"; sourceTree = "<group>"; };
 		B872C3C9265D720F00702872 /* defaultContacts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = defaultContacts.json; sourceTree = "<group>"; };
@@ -68,6 +76,7 @@
 		AFA5EAE2243B7EA100CA0535 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				B85BB83A266D22BF0078EB7F /* View+hidden.swift */,
 				B872C3C3265D637400702872 /* Bundle+Decodable.swift */,
 				AFA5EAE3243B7EFD00CA0535 /* ColorExtension.swift */,
 				AFA5EAEB243B9C7800CA0535 /* UINavigationControllerExtension.swift */,
@@ -150,7 +159,10 @@
 		B8CFD675265E534500D43963 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				B85BB842266D329C0078EB7F /* ProfileTextField.swift */,
+				B85BB83C266D23F60078EB7F /* ContactView.swift */,
 				AFA5EAE7243B811100CA0535 /* Neumorphism ButtonBackgroundView.swift */,
+				B85BB83E266D28480078EB7F /* BarButtonView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -241,6 +253,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B85BB83F266D28480078EB7F /* BarButtonView.swift in Sources */,
 				B872C3C0265D616000702872 /* MyContacts.swift in Sources */,
 				B872C3C4265D637400702872 /* Bundle+Decodable.swift in Sources */,
 				AFA5EAE8243B811100CA0535 /* Neumorphism ButtonBackgroundView.swift in Sources */,
@@ -251,10 +264,13 @@
 				AFCA9B57243A3160008CF5DA /* ProfileView.swift in Sources */,
 				AFCA9B41243A2E0A008CF5DA /* AppDelegate.swift in Sources */,
 				AFA5EAEC243B9C7800CA0535 /* UINavigationControllerExtension.swift in Sources */,
+				B85BB843266D329C0078EB7F /* ProfileTextField.swift in Sources */,
+				B85BB83D266D23F60078EB7F /* ContactView.swift in Sources */,
 				AFCA9B43243A2E0A008CF5DA /* SceneDelegate.swift in Sources */,
 				AFA5EAEA243B8A8700CA0535 /* TabBarView.swift in Sources */,
 				AF00003E243E2CA00003C920 /* KeyboardResponder.swift in Sources */,
 				AF00003C243E1D440003C920 /* ActionSheetCustomisation.swift in Sources */,
+				B85BB83B266D22BF0078EB7F /* View+hidden.swift in Sources */,
 				AFCA9B45243A2E0A008CF5DA /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

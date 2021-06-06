@@ -5,28 +5,22 @@
 //  Created by Valerie 👩🏼‍💻 on 05/04/2020.
 //
 
-import UserNotifications
 import SwiftUI
+import UserNotifications
 import CodeScanner
 
-enum FilterType {
-    case all, contacted, uncontacted
-}
-
-enum SortType {
-    case name, recent
-}
+enum FilterType { case all, contacted, uncontacted }
+enum SortType { case name, recent }
 
 struct ContactsView: View {
-    
     @EnvironmentObject var contacts: MyContacts
+    let filter: FilterType
+
     @State private var showingScanner = false
     @State private var showingSortOptions = false
-    @State var sort: SortType = .name
+    @State private var sortBy: SortType = .name
     
-    let filter: FilterType
-    
-    var title: String {
+    private var title: String {
         switch filter {
         case .all: return "You have met"
         case .contacted: return "Contacted"
@@ -34,7 +28,7 @@ struct ContactsView: View {
         }
     }
     
-    var filteredContacts: [Contact] {
+    private var filteredContacts: [Contact] {
         switch filter {
         case .all:
             return contacts.people
@@ -45,114 +39,58 @@ struct ContactsView: View {
         }
     }
     
-    var filteredSortedContacts: [Contact] {
-        switch sort {
+    private var filteredSortedContacts: [Contact] {
+        switch sortBy {
         case .name:
             return filteredContacts.sorted { $0.name < $1.name }
         case .recent:
-            return filteredContacts.sorted { $0.name < $1.name }
-            //return filteredContacts.sorted { $0.date > $1.date }
+            return filteredContacts.sorted { $0.date > $1.date }
         }
     }
-    
-    let random = ["Vanessa Wood\n+421 427 001 862\nvanesood@gmail.com\nHarris, Baker and Harrison",
-                  "Kimberly James\n+421 656 923 217\nkimbemes@gmail.com\nMatthews and Sons",
-                  "Euan Rankin\n+421 759 528 453\neuan.rankin@random.com\nBailey-Ellis",
-                  "Wayne Knight\n+44(0)5020 49628\nwayneght@gmail.com\nRussell-Bailey",
-                  "Lola Khan\n+257 3484 703 302\nlolahan@gmail.com\nEvans-Allen",
-                  "Chris Russell\n+421 045 837 608\nchrisell@gmail.com\nMason, Allen and White",
-                  "MUDr. Vilma Plskova DSc.\n+421 045 837 608\nmudrvdsc@gmail.com\nVesela-Vasicek",
-                  "Nina Simonova\n+421 561 147 300\n421 561 147 300\nHolubova and Jurik"
-    ]
-    
+
     var body: some View {
         NavigationView {
-            List {
-                ForEach(filteredSortedContacts) { contact in
-
-                    HStack(spacing: 10) {
-                        if self.filter == .all {
-                            if contact.isContacted {
-                                Image(systemName: "checkmark.circle.fill")
-                                    .foregroundColor(.pink)
-                            } else {
-                                Image(systemName: "checkmark.circle.fill")
-                                    .opacity(0)
-                            }
-                        }
-                        
-                        VStack(alignment: .leading) {
-                            Text(contact.workplace.uppercased())
-                                .font(.custom("Helvetica-light", size: 11))
-                                .padding(.bottom, 5)
-                                
-                            Text(contact.name)
-                                .font(.custom("Helvetica-bold", size: 15))
-                                .foregroundColor(.charcoal)
-                            
-                            VStack(alignment: .leading, spacing: 3) {
-                                HStack(spacing: 15) {
-                                    Text(contact.phoneNumber)
-                                    Text(contact.emailAddress)
-                                    Spacer()
+            ScrollView(showsIndicators: false) {
+                VStack(spacing: 10) {
+                    ForEach(filteredSortedContacts) { contact in
+                        ContactView(contact: contact, filter: filter)
+                            .contextMenu {
+                                Button(contact.isContacted ? "Mark as Uncontacted" : "Mark as Contacted") {
+                                    contacts.toggle(contact)
+                                }
+                                if !contact.isContacted {
+                                    Button("Remind me in 1 hour") {
+                                        addNotifications(for: contact)
+                                    }
                                 }
                             }
-                            .font(.custom("Helvetica", size: 13))
-                            .foregroundColor(.charcoal)
-                            .padding(.top, 10)
-                        }
-                        .padding(.top, 8)
-                        .padding(.bottom, 8)
                     }
-                        
-                    .padding([.top, .bottom], 10)
-                    .padding(.leading, 25)
-                    .background(Color.pearl)
-                    .shadow(color: Color.gray.opacity(0.1), radius: 5, x: 5, y: 5)
-                    .shadow(color: Color.white.opacity(0.7), radius: 5, x: -2.5, y: -2.5)
-                        
-                    .contextMenu {
-                        Button(contact.isContacted ? "Mark as Uncontacted" : "Mark as Contacted") {
-                            self.contacts.toggle(contact)
-                        }
-                        if !contact.isContacted {
-                            Button("Remind me in 1 hour") {
-                                self.addNotifications(for: contact)
-                            }
-                        }
-                    }
+                    .edgesIgnoringSafeArea(.all)
                 }
-                .listRowBackground(Color.pearl).edgesIgnoringSafeArea(.all)
-            }
+            }            
             .padding(.top, 10)
             .background(Color.pearl)
             .navigationBarTitle(title)
-            .navigationBarItems(leading: Button(action: {
-                self.showingSortOptions = true
-                }) {
-                    Text("Sort")
-                        .foregroundColor(.pink)
-                        .frame(width: 80, height: 80, alignment: .leading)
-                        .contentShape(Rectangle())
-                }, trailing: Button(action: {
-                    self.showingScanner = true
-                }) {
-                    Image(systemName: "qrcode")
-                        .foregroundColor(.pink)
-                        .frame(width: 80, height: 80, alignment: .trailing)
-                        .contentShape(Rectangle())
-                }
+            .navigationBarItems(
+                leading:
+                    BarButtonView(text: "Sort") {
+                        showingSortOptions = true
+                    },
+                trailing:
+                    BarButtonView(systemImage: "qrcode") {
+                        showingScanner = true
+                    }
             )
             .sheet(isPresented: $showingScanner) {
-                CodeScannerView(codeTypes: [.qr], simulatedData: self.random.randomElement()!, completion: self.handleScan)
+                CodeScannerView(codeTypes: [.qr], simulatedData: randomContact.randomElement()!, completion: handleScan)
             }
             .actionSheet(isPresented: $showingSortOptions) {
                 ActionSheet(title: Text("Sort by"), buttons: [
-                    .default(Text((self.sort == .name ? "✓  " : "   ") + "Name"), action: {
-                        self.sort = .name
+                    .default(Text((sortBy == .name ? "✓  " : "   ") + "Name"), action: {
+                        sortBy = .name
                     }),
-                    .default(Text((self.sort == .recent ? "✓  " : "   ") + "Recent"), action: {
-                        self.sort = .recent
+                    .default(Text((sortBy == .recent ? "✓  " : "   ") + "Recent"), action: {
+                        sortBy = .recent
                     })
                 ])
             }
@@ -160,30 +98,38 @@ struct ContactsView: View {
         }
     }
     
-    func handleScan(result: Result<String, CodeScannerView.ScanError>) {
-        self.showingScanner = false
+    // MARK: - Simulated data
+    private let randomContact = [
+        "Vanessa Wood\n+421 427 001 862\nvanesood@gmail.com\nHarris, Baker and Harrison",
+        "Kimberly James\n+421 656 923 217\nkimbemes@gmail.com\nMatthews and Sons",
+        "Euan Rankin\n+421 759 528 453\neuan.rankin@random.com\nBailey-Ellis",
+        "Wayne Knight\n+44(0)5020 49628\nwayneght@gmail.com\nRussell-Bailey",
+        "Lola Khan\n+257 3484 703 302\nlolahan@gmail.com\nEvans-Allen",
+        "Chris Russell\n+421 045 837 608\nchrisell@gmail.com\nMason, Allen and White",
+        "MUDr. Vilma Plskova DSc.\n+421 045 837 608\nmudrvdsc@gmail.com\nVesela-Vasicek",
+        "Nina Simonova\n+421 561 147 300\n421 561 147 300\nHolubova and Jurik"
+    ]
+    
+    // MARK: - QR scan
+    private func handleScan(result: Result<String, CodeScannerView.ScanError>) {
+        showingScanner = false
         
         switch result {
         case .success(let code):
             let details = code.components(separatedBy: "\n")
             guard details.count == 4 else { return }
             
-            var person = Contact()
-            person.name = details[0]
-            person.phoneNumber = details[1]
-            person.emailAddress = details[2]
-            person.workplace = details[3]
+            let newContact = Contact(name: details[0], phoneNumber: details[1], emailAddress: details[2], workplace: details[3])
             
-            self.contacts.add(person)
+            contacts.add(newContact)
             
         case .failure(let error):
-            print(error.localizedDescription)
-            print("Scanning failed")
+            print("Scanning failed." + error.localizedDescription)
         }
     }
     
-    // notifications
-    func addNotifications(for contact: Contact) {
+    // MARK: - Notifications
+    private func addNotifications(for contact: Contact) {
         let center = UNUserNotificationCenter.current()
         
         let addRequest = {
@@ -224,5 +170,6 @@ struct ContactsView: View {
 struct MembersView_Previews: PreviewProvider {
     static var previews: some View {
         ContactsView(filter: .contacted)
+            .environmentObject(MyContacts())
     }
 }
