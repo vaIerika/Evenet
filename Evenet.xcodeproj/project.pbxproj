@@ -31,6 +31,8 @@
 		B872C3C0265D616000702872 /* MyContacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B872C3BF265D616000702872 /* MyContacts.swift */; };
 		B872C3C4265D637400702872 /* Bundle+Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B872C3C3265D637400702872 /* Bundle+Decodable.swift */; };
 		B872C3CA265D720F00702872 /* defaultContacts.json in Resources */ = {isa = PBXBuildFile; fileRef = B872C3C9265D720F00702872 /* defaultContacts.json */; };
+		B87FDF862678E18200E2DC09 /* QRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87FDF852678E18200E2DC09 /* QRCodeView.swift */; };
+		B87FDF882678E3B400E2DC09 /* EditButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87FDF872678E3B400E2DC09 /* EditButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +61,8 @@
 		B872C3BF265D616000702872 /* MyContacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyContacts.swift; sourceTree = "<group>"; };
 		B872C3C3265D637400702872 /* Bundle+Decodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Decodable.swift"; sourceTree = "<group>"; };
 		B872C3C9265D720F00702872 /* defaultContacts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = defaultContacts.json; sourceTree = "<group>"; };
+		B87FDF852678E18200E2DC09 /* QRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeView.swift; sourceTree = "<group>"; };
+		B87FDF872678E3B400E2DC09 /* EditButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +163,8 @@
 		B8CFD675265E534500D43963 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				B87FDF852678E18200E2DC09 /* QRCodeView.swift */,
+				B87FDF872678E3B400E2DC09 /* EditButtonView.swift */,
 				B85BB842266D329C0078EB7F /* ProfileTextField.swift */,
 				B85BB83C266D23F60078EB7F /* ContactView.swift */,
 				AFA5EAE7243B811100CA0535 /* Neumorphism ButtonBackgroundView.swift */,
@@ -262,9 +268,11 @@
 				AFCA9B5B243A31D4008CF5DA /* Contact.swift in Sources */,
 				AFA5EAE4243B7EFD00CA0535 /* ColorExtension.swift in Sources */,
 				AFCA9B57243A3160008CF5DA /* ProfileView.swift in Sources */,
+				B87FDF882678E3B400E2DC09 /* EditButtonView.swift in Sources */,
 				AFCA9B41243A2E0A008CF5DA /* AppDelegate.swift in Sources */,
 				AFA5EAEC243B9C7800CA0535 /* UINavigationControllerExtension.swift in Sources */,
 				B85BB843266D329C0078EB7F /* ProfileTextField.swift in Sources */,
+				B87FDF862678E18200E2DC09 /* QRCodeView.swift in Sources */,
 				B85BB83D266D23F60078EB7F /* ContactView.swift in Sources */,
 				AFCA9B43243A2E0A008CF5DA /* SceneDelegate.swift in Sources */,
 				AFA5EAEA243B8A8700CA0535 /* TabBarView.swift in Sources */,

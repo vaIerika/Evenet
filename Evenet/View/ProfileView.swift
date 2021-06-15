@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import CoreImage.CIFilterBuiltins
 
 struct ProfileView: View {
     @ObservedObject private var keyboard = KeyboardResponder()
@@ -15,62 +14,20 @@ struct ProfileView: View {
     @State private var emailAddress = "valerika.hello@gmail.com"
     @State private var workplace = "🍏 Inc."
     @State private var disableEditing = true
-    private let context = CIContext()
-    private let filer = CIFilter.qrCodeGenerator()
     
     var body: some View {
         NavigationView {
             VStack(spacing: 0) {
-                ZStack {
-                    Image(uiImage: generateQRCode(from: "\(name)\n\(phoneNumber)\n\(emailAddress)\n\(workplace)"))
-                        .interpolation(.none)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(minWidth: 70, idealWidth: 120, maxWidth: 170, minHeight: 70, idealHeight: 120, maxHeight: 170)
-                    .padding(30)
-                    .background(
-                        RoundedRectangle(cornerRadius: 15)
-                            .frame(minWidth: 100, idealWidth: 200, maxWidth: 250, minHeight: 100, idealHeight: 200, maxHeight: 250)
-                            .aspectRatio(contentMode: .fit)
-
-                            .foregroundColor(.white)
-                            .shadow(color: Color.gray.opacity(0.3), radius: 8, x: 8, y: 8)
-                            .shadow(color: Color.white.opacity(0.7), radius: 10, x: -5, y: -5)
-                    )
-                }
-                .padding(.top, 40)
-                .padding(.bottom, 20)
                 
-                HStack {
-                    Spacer()
-                    Button(action: {
-                        withAnimation {
-                            disableEditing.toggle()
-                        }
-                    }) {
-                        if disableEditing {
-                            HStack {
-                                Image(systemName: "pencil")
-                                Text("Edit")
-                            }
-                            .foregroundColor(.pink)
-                            .frame(width: 80, height: 30, alignment: .trailing)
-                         } else {
-                            Text("Save")
-                               .foregroundColor(.pink)
-                               .frame(width: 80, height: 30, alignment: .trailing)
-                        }
-                    }
-                    .offset(x: -5, y: 35)
-                    .layoutPriority(1)
-                }
+                QRCodeView(name: name, phoneNumber: phoneNumber, emailAddress: emailAddress, workplace: workplace)
+                
+                EditButtonView(disableEditing: $disableEditing)
+                    .padding(.top)
                 Group {
-                    ProfileLargeTextField(description: "My name is:", contentType: .name, text: $name)
-                        .padding(.bottom, 15)
-                    ProfileTextField(description: "Phone number", contentType: .telephoneNumber, text: $phoneNumber)
-                    ProfileTextField(description: "Email address", contentType: .emailAddress, text: $emailAddress)
-                        .padding(.bottom, 17)
-                    ProfileMediumTextField(description: "I work in: ", contentType: .jobTitle, text: $workplace)
+                    ProfileTextField(text: $name, description: "My name", contentType: .name, size: .large)
+                    ProfileTextField(text: $phoneNumber, description: "Phone number", contentType: .telephoneNumber)
+                    ProfileTextField(text: $emailAddress, description: "Email", contentType: .emailAddress)
+                    ProfileTextField(text: $workplace, description: "Workplace", contentType: .organizationName)
                 }
                 .disabled(disableEditing)
                 
@@ -78,25 +35,10 @@ struct ProfileView: View {
             }
             .padding(.bottom, keyboard.currentHeight)
             .edgesIgnoringSafeArea(.bottom)
-            //.animation(.easeOut(duration: 0.16))
-                
             .padding(.horizontal, 20)
             .background(Color.pearl)
-                
             .navigationBarTitle("My QR code")
         }
-    }
-    
-    private func generateQRCode(from string: String) -> UIImage {
-        let data = Data(string.utf8)
-        filer.setValue(data, forKey: "inputMessage")
-        
-        if let outputImage = filer.outputImage {
-            if let cgimg = context.createCGImage(outputImage, from: outputImage.extent) {
-                return UIImage(cgImage: cgimg)
-            }
-        }
-        return UIImage(systemName: "xmark.octagon") ?? UIImage()
     }
 }
 
