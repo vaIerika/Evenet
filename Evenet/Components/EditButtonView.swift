@@ -2,7 +2,7 @@
 //  EditButtonView.swift
 //  Evenet
 //
-//  Created by Valerie Abelovska on 15/06/2021.
+//  Created by Valerie 👩🏼‍💻 on 15/06/2021.
 //
 
 import SwiftUI

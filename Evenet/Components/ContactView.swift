@@ -2,7 +2,7 @@
 //  ContactView.swift
 //  Evenet
 //
-//  Created by Valerie Abelovska on 06/06/2021.
+//  Created by Valerie 👩🏼‍💻 on 06/06/2021.
 //
 
 import SwiftUI

@@ -138,14 +138,13 @@ struct ContactsView: View {
             content.subtitle = "\(contact.phoneNumber), \(contact.emailAddress)"
             content.sound = UNNotificationSound.default
             
-            var dateComponents = DateComponents()
-            dateComponents.hour = 1
+            // MARK: - Notification time
+            // var dateComponents = DateComponents()
+            // dateComponents.hour = 1
+            // let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
             
-            // in one hour:
-            // let trigger = UNTimeIntervalNotificationTrigger(timeInterval: dateComponents, repeats: false)
-           
-            // test - 30 seconds
-            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 30, repeats: false)
+            /// Testing: Notification in 5 sec instead 1 hour
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
             
             let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
             center.add(request)
@@ -159,7 +158,7 @@ struct ContactsView: View {
                     if success {
                         addRequest()
                     } else {
-                        print("Notifications are not allowed")
+                        print("Notifications are not allowed.")
                     }
                 }
             }

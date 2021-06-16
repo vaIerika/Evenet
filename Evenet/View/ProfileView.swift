@@ -18,9 +18,7 @@ struct ProfileView: View {
     var body: some View {
         NavigationView {
             VStack(spacing: 0) {
-                
                 QRCodeView(name: name, phoneNumber: phoneNumber, emailAddress: emailAddress, workplace: workplace)
-                
                 EditButtonView(disableEditing: $disableEditing)
                     .padding(.top)
                 Group {
@@ -33,11 +31,11 @@ struct ProfileView: View {
                 
                 Spacer()
             }
-            .padding(.bottom, keyboard.currentHeight)
             .edgesIgnoringSafeArea(.bottom)
             .padding(.horizontal, 20)
-            .background(Color.pearl)
             .navigationBarTitle("My QR code")
+            .padding(.bottom, keyboard.currentHeight)
+            .background(Color.pearl)
         }
     }
 }
